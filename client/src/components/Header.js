@@ -24,7 +24,7 @@ const Header = (props) => {
    };
 
    return (
-      <nav className="teal accent-4">
+      <nav className="blue accent-3">
          <div className="nav-wrapper">
             <Link
                to={props.auth ? '/surveys' : '/'}
