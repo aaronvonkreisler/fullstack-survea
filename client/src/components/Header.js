@@ -1,24 +1,37 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 const Header = (props) => {
+   console.log(props);
    const renderContent = () => {
       switch (props.auth) {
          case null:
-            return 'Still deciding';
+            return;
          case false:
-            return 'Im logged out';
+            return (
+               <li>
+                  <a href="/auth/google">Login with Google</a>
+               </li>
+            );
          default:
-            return 'Im logged in';
+            return (
+               <li>
+                  <a href="/api/logout">Logout</a>
+               </li>
+            );
       }
    };
 
    return (
-      <nav>
+      <nav className="teal accent-4">
          <div className="nav-wrapper">
-            <a className="left brand-logo" href="/">
+            <Link
+               to={props.auth ? '/surveys' : '/'}
+               className="left brand-logo"
+            >
                Survea
-            </a>
+            </Link>
             <ul className="right">{renderContent()}</ul>
          </div>
       </nav>
