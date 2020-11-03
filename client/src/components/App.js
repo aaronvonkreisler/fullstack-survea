@@ -15,13 +15,15 @@ const App = (props) => {
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
    return (
-      <div className="container">
+      <div>
          <BrowserRouter>
             <div>
                <Header />
-               <Route path="/" exact component={Landing} />
-               <Route path="/surveys" exact component={Dashboard} />
-               <Route path="/surveys/new" exact component={SurveyNew} />
+               <div className="container">
+                  <Route path="/" exact component={Landing} />
+                  <Route path="/surveys" exact component={Dashboard} />
+                  <Route path="/surveys/new" exact component={SurveyNew} />
+               </div>
             </div>
          </BrowserRouter>
       </div>
